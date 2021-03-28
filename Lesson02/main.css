@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: solid 1px green;
+}
+
+textarea {
+    width: 99%;
+    height: 150px;
+
+}
+
+.div_task {
+    margin: 15px 10px 0;
+}
+
+.h3_main {
+    margin-top: 0;
+}

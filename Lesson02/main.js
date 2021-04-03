@@ -23,7 +23,7 @@ function checkNumbers(a, b) {
         document.getElementsByName("task3")[0].value = a - b;
     } else if (a < 0 && b < 0) {
         document.getElementsByName("task3")[0].value = a * b;
-    } else if ((a * b) <= 0) {
+    } else {
         document.getElementsByName("task3")[0].value = +a + +b;
     }
 }
@@ -85,37 +85,37 @@ outputNumbers();
 //end task4
 
 //task5
-let my_sum = function (a, b) {
+let mySum = function (a, b) {
     return a + b;
 }
-let my_sub = function (a, b) {
+let mySub = function (a, b) {
     return a - b;
 }
-let my_mul = function (a, b) {
+let myMul = function (a, b) {
     return a * b;
 }
-let my_div = function (a, b) {
+let myDiv = function (a, b) {
     return b != 0 ? a / b : "division by zero";
 }
 function calcSum() {
     let a = +document.getElementsByName("var_a5")[0].value;
     let b = +document.getElementsByName("var_b5")[0].value;
-    document.getElementsByName("task5")[0].value = a + " + " + b + " = " + my_sum(a, b);
+    document.getElementsByName("task5")[0].value = a + " + " + b + " = " + mySum(a, b);
 }
 function calcSub() {
     let a = +document.getElementsByName("var_a5")[0].value;
     let b = +document.getElementsByName("var_b5")[0].value;
-    document.getElementsByName("task5")[0].value = a + " - " + b + " = " + my_sub(a, b);
+    document.getElementsByName("task5")[0].value = a + " - " + b + " = " + mySub(a, b);
 }
 function calcMul() {
     let a = +document.getElementsByName("var_a5")[0].value;
     let b = +document.getElementsByName("var_b5")[0].value;
-    document.getElementsByName("task5")[0].value = a + " * " + b + " = " + my_mul(a, b);
+    document.getElementsByName("task5")[0].value = a + " * " + b + " = " + myMul(a, b);
 }
 function calcDiv() {
     let a = +document.getElementsByName("var_a5")[0].value;
     let b = +document.getElementsByName("var_b5")[0].value;
-    document.getElementsByName("task5")[0].value = a + " / " + b + " = " + my_div(a, b);
+    document.getElementsByName("task5")[0].value = a + " / " + b + " = " + myDiv(a, b);
 }
 //end task5
 
@@ -123,19 +123,19 @@ function calcDiv() {
 function mathOperation(a, b, oper) {
     switch (oper) {
         case 'сложение': {
-            let result = my_sum(a, b);
+            let result = mySum(a, b);
             return result;
         }
         case 'вычитание': {
-            let result = my_sub(a, b);
+            let result = mySub(a, b);
             return result;
         }
         case 'умножение': {
-            let result = my_mul(a, b);
+            let result = myMul(a, b);
             return result;
         }
         case 'деление': {
-            let result = my_div(a, b);
+            let result = myDiv(a, b);
             return result;
         }
     }
@@ -160,9 +160,9 @@ textField.value += "По той же причине операции null <= 0 �
 //end task7
 
 //task8
-function my_pow(val, pow) {
+function myPow(val, pow) {
     if (pow > 1) {
-        return val * my_pow(val, pow - 1);
+        return val * myPow(val, pow - 1);
     } else if (pow == 0) {
         return 1;
     }
@@ -174,9 +174,9 @@ function calcPow() {
     let val = +document.getElementsByName("var_val8")[0].value;
     let pow = +document.getElementsByName("var_pow8")[0].value;
     textField = document.getElementsByName("task8")[0];
-    textField.value = "" + val + "^" + pow + " = " + my_pow(val, pow);
+    textField.value = "" + val + "^" + pow + " = " + myPow(val, pow);
 }
 document.getElementsByName("var_val8")[0].value = 0;
 document.getElementsByName("var_pow8")[0].value = 0;
-document.getElementsByName("task8")[0].value = "0^0 = " + my_pow(0, 0);
+document.getElementsByName("task8")[0].value = "0^0 = " + myPow(0, 0);
 //end task8

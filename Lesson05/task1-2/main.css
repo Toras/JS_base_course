@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.tbMain {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border: solid 1px;
+}
+
+.tbWhite {
+    background-color: greenyellow;
+}
+
+.tbBlack {
+    background-color: brown;
+}
+
+.tbWhiteFigure {
+    color: white;
+}
+
+.tbBlackFigure {
+    color: black;
+}

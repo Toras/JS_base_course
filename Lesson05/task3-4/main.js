@@ -4,41 +4,40 @@ function Product(name, price, edizm) {
     this.edizm = edizm;
 }
 
-function Basket() {
-    this.products = new Map();
-}
+const curBasket = {
+    products: new Map(),
 
-function addToBaket(basket, product, quantity) {
-    if (basket.products.has(product)) {
-        let qInBasket = basket.products.get(product);
-        basket.products.set(product, quantity + qInBasket);
-    } else {
-        basket.products.set(product, quantity);
+    addToBaket(product, quantity) {
+        if (this.products.has(product)) {
+            let qInBasket = this.products.get(product);
+            this.products.set(product, quantity + qInBasket);
+        } else {
+            this.products.set(product, quantity);
+        }
+    },
+
+    removeFromBaket(product) {
+        this.products.delete(product);
+    },
+
+    countBasketPrice() {
+        let sumInBasket = 0;
+        for (let basketItem of this.products) {
+            sumInBasket += basketItem[0].price * basketItem[1];
+        }
+        return sumInBasket;
     }
 }
 
-function removeFromBaket(basket, product) {
-    basket.products.delete(product);
-}
-
-function countBasketPrice(curBasket) {
-    let sumInBasket = 0;
-    for (let basketItem of curBasket.products) {
-        sumInBasket += basketItem[0].price * basketItem[1];
-    }
-    return sumInBasket;
-}
-
-let curBasket = new Basket();
 let catalogArray = new Array();
 catalogArray.push(new Product('p1', 45, 'kg'));
 catalogArray.push(new Product('p2', 100, 'unit'));
 catalogArray.push(new Product('p3', 100, 'kg'));
-addToBaket(curBasket, catalogArray[0], 1.5);
-addToBaket(curBasket, catalogArray[1], 5);
-addToBaket(curBasket, catalogArray[2], 2);
-addToBaket(curBasket, catalogArray[0], 3);
-let sum = countBasketPrice(curBasket);
+curBasket.addToBaket(catalogArray[0], 1.5);
+curBasket.addToBaket(catalogArray[1], 5);
+curBasket.addToBaket(catalogArray[2], 2);
+curBasket.addToBaket(catalogArray[0], 3);
+let sum = curBasket.countBasketPrice();
 
 HTMLString = '<h3>КОРЗИНА</h3>';
 if (curBasket.products.size == 0) {

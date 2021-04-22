@@ -1,0 +1,35 @@
+if (!("a" in window)) {
+    var a = 1;
+}
+alert(a);
+//undefined
+//выполнится var a, присвоение а = 1 выполнено не будет, поскольку проверка !("a" in window) будет false
+
+var b = function a(x) {
+    x && a(--x);
+};
+alert(a);
+//a not defined
+//функция а в контексте в котором alert(a) несуществует, в нем она известна под именем b
+
+function a(x) {
+    return x * 2;
+}
+var a;
+alert(a);
+//будет выведено тело функции
+
+function b(x, y, a) {
+    arguments[2] = 10;
+    alert(a);
+}
+b(1, 2, 3);
+//3
+//а = 3 - это отдельная переменная внутри функции, arguments - массив аргументов, они ссылаются на разные значения.
+
+function a() {
+    alert(this);
+}
+a.call(null);
+//null
+//а вызывается в контексте null, поэтому this внутри функции выведет null
